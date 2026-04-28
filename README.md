@@ -14,12 +14,16 @@ HP 1660ES → TCP/5025 (SCPI + blob) → libsigrok → PulseView / sigrok-cli
 
 ```bash
 # Build the driver (inside libsigrok source tree)
-cd sigrok/libsigrok
-make src/hardware/hp1660es/api.lo src/hardware/hp1660es/protocol.lo && make
-
-# Install (root)
-sudo cp .libs/libsigrok.so.4.0.0 /usr/lib/ && sudo ldconfig
-```
+git clone git://sigrok.org/libsigrok
+cd libsigrok
+mkdir -p src/hardware/hp1660es
+copy protocol.h protocol.c api.c in src/hardware/hp1660es/
+copy configure.ac and Makefile.am in the libsigrok directory
+./autogen.sh
+./configure --disable-all-drivers --enable-hp1660es
+make
+the install the compiled (.libs/libsigrok.so.4.0.0) library in your system (/usr/lib ??) 
+sudo ldconfig 
 
 **Python prototype** (reference implementation): `hp1660_acq_osc.py`, `hp1660_acq_la.py`
 
