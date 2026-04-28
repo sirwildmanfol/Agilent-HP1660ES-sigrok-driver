@@ -22,7 +22,7 @@ copy configure.ac and Makefile.am in the libsigrok directory
 ./autogen.sh
 ./configure --disable-all-drivers --enable-hp1660es
 make
-the install the compiled (.libs/libsigrok.so.4.0.0) library in your system (/usr/lib ??) 
+then install the compiled (.libs/libsigrok.so.4.0.0) library in your system (/usr/lib ??) 
 sudo ldconfig 
 
 **Python prototype** (reference implementation): `hp1660_acq_osc.py`, `hp1660_acq_la.py`
