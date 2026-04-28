@@ -173,8 +173,6 @@ Pods are grouped in pairs: (A1,A2), (A3,A4), (A5,A6), (A7,A8). Unitsize is dynam
 
 ## Known Quirks
 
-- **MSX clock jitter**: the test signal (MSX Z80 clock) shows period instability (170-530ns) between captures. This is the signal, not the driver.
-- **CH2 hardware**: some units have a defective relay attenuator above ~5V/div on CH2. Hardware issue, not driver.
 - **:STOP blocks acquisition**: never send `:STOP` before the trigger fires naturally — `SYSTEM:DATA?` returns stale data from the previous run.
 - **IMB cleanup**: after mixed acquisition, `:INTermodule:DELete ALL` is mandatory. The driver does this automatically.
 - **PulseView 64-channel limit**: use `fix_sr.py` to post-process .sr files with > 64 channels.
@@ -190,15 +188,6 @@ sigrok-cli --driver hp1660es:conn=tcp-raw/192.168.1.110/5025 \
 
 ---
 
-## Hardware Connection
-
-> ⚠ Run the laptop on battery during measurements. Ground loop between laptop PSU and 1660ES PSU can cause transients.
-
-**Order:** connect LA pod ground BEFORE signal wires.
-
-Ethernet is galvanically isolated — safe.
-
----
 
 ## Resources
 
@@ -207,9 +196,6 @@ Ethernet is galvanically isolated — safe.
 | `src/hardware/hp1660es/api.c` | Driver entry points: scan, config, acquisition start/stop |
 | `src/hardware/hp1660es/protocol.c` | SCPI communication, blob parsing, state machines |
 | `src/hardware/hp1660es/protocol.h` | Data structures, constants, enums |
-| `hp1660_acq_osc.py` | Python prototype — OSC acquisition |
-| `hp1660_acq_la.py` | Python prototype — LA acquisition |
-| `fix_sr.py` | Post-process .sr metadata for PulseView |
 
 ---
 
