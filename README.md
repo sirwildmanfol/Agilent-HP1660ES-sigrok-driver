@@ -109,11 +109,12 @@ sigrok-cli --driver hp1660es:conn=tcp-raw/192.168.1.110/5025 \
   -O srzip -o la_2pod.sr
 ```
 
-PulseView workaround (required if file has > 64 channels):
-```bash
-python3 fix_sr.py la_timing.sr la_timing_fixed.sr
-pulseview la_timing_fixed.sr
-```
+### PulseView
+
+PulseView interface force the channels to be limite to 64.
+Right now there is some problem in pulseview: frequency selection menu doesn't work; when you scan for the machine all channels are selected (a bit overwhelming).
+Since PulseView can't manage different sample rate in the same acquisition, at the moment, the scope signal is now visualize with the right timing scale.
+All of this is not because of some bug in the driver code, but because the appropriate workaround has not yet put in place. 
 
 ### Logic Analyzer — STATE mode (external clock)
 
