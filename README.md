@@ -10,7 +10,7 @@ HP 1660ES → TCP/5025 (SCPI + blob) → libsigrok → PulseView / sigrok-cli
 
 ---
 
-![image](https://github.com/sirwildmanfol/Agilent-HP1660ES-sigrok-driver/blob/main/Screenshot%20from%202026-04-29%2023-27-30.png?raw=true)
+![image](https://raw.githubusercontent.com/sirwildmanfol/Agilent-HP1660ES-sigrok-driver/refs/heads/main/Screenshot%20from%202026-04-29%2023-25-14.png)
 
 ## Build & Install
 
